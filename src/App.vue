@@ -1,18 +1,19 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to My To-Do List"/>
+    <todoapp/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import todoapp from './components/TodoList.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    todoapp
   }
 }
+
 </script>
 
 <style>
