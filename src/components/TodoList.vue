@@ -7,7 +7,7 @@
     <button type="submit">Add</button>
     <!-- {{addTodoInput}} -->
   </form>
-<h3>My Todo Tasks</h3>
+<h3>New ToDo</h3>
   <div class="todo-lists" v-if="lists.length">
     <ul>
       <li v-for="list in lists" :key="list.id">
@@ -35,14 +35,12 @@ import _ from 'lodash'
   
   data : function () {
    return {
-     message: 'Todo App',
+     message: 'New ToDo',
      addTodoInput: ''  , 
      lists: [], // this will hold all the created todo task items
      hasError: false  // <-- to handle errors
    } 
   },
-
-  
 
   methods:{
     addTask: function(){  //form submit action goes here
@@ -76,16 +74,12 @@ import _ from 'lodash'
   
 }
     
-
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 input[type=text].error{border: 1px solid red;}
-
-
 
 .title{
   display: inline-block;
@@ -95,7 +89,6 @@ input[type=text].error{border: 1px solid red;}
   font-size: 16px;
   vertical-align:middle;
 }
-
 
 .remove{
   cursor:pointer;
