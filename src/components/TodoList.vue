@@ -3,19 +3,16 @@
   <div id="todoApp">
   <h3> {{message}} </h3>
   <form name="todo-form" method="post" action="" v-on:submit.prevent= "addTask">
-    <input name="add-todo" type="text" v-model= "addTodoInput" v-bind:class= "{error: hasError}"/>
+    <input  type="text" v-model= "addTodoInput" v-bind:class= "{error: hasError}"/>
     <button type="submit">Add</button>
-
     <!-- {{addTodoInput}} -->
   </form>
-<h3>My Todo Tasks</h3>
+<h3>Tasks</h3>
   <div class="todo-lists" v-if="lists.length">
-    
     <ul>
-      <li v-for="list in filterLists" :key="list.id">
+      <li v-for="list in lists" :key="list.id">
         <input type="checkbox" v-on:change="completeTask(list)" v-bind:checked="list.isComplete"/>
         <span class="title" 
-              contenteditable="true" 
               v-on:keydown.enter="updateTask($event, list)" 
               v-on:blur="updateTask($event, list)" 
               v-bind:class="{completed: list.isComplete}">{{list.title}}
@@ -29,6 +26,7 @@
 </template>
 
 <script>
+
 import _ from 'lodash'
 
  export default {
@@ -36,18 +34,14 @@ import _ from 'lodash'
   
   data : function () {
    return {
-     message: 'Welcome to Todo App',
+     message: 'New Task',
      addTodoInput: ''  , 
      lists: [], // this will hold all the created todo task items
      hasError: false  // <-- to handle errors
    } 
   },
 
-  computed: {
-          filterLists: function(){
-            return _.orderBy(this.lists, ['isComplete', false])
-          }
-        },
+  
 
   methods:{
     addTask: function(){  //form submit action goes here
@@ -87,18 +81,29 @@ import _ from 'lodash'
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
+
+input[type=text].error{border: 1px solid red;}
+
+
+.title{
   display: inline-block;
-  margin: 0 10px;
+  width: 200px;
+  border: 1px solid transparent;
+  padding: 8px;
+  font-size: 16px;
+  vertical-align:middle;
 }
-a {
-  color: #42b983;
+
+
+.remove{
+  cursor:pointer;
+  display:inline-block;
+  border: 1px solid #c4c4c4;
+  border-radius: 50%;
+  padding:0px 4px;
 }
+
+
+
+
 </style>
