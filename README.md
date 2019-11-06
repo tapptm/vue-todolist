@@ -2,10 +2,13 @@
  A to-do list is a simple but effective way to manage tasks.
 
 # User Stories
--As a user, I need to be able to add an activity (item to the list).
--As a user, I need to be able to update the activity (toggle status between completed/not -completed).
--As a user, I need to be able to delete the activity.
-
+```
+As a user, I need to be able to add an activity (item to the list).
+```
+As a user, I need to be able to update the activity (toggle status between completed/not -completed).
+```
+As a user, I need to be able to delete the activity.
+```
 ## Project setup
 ```
 yarn install
