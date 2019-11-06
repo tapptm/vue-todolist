@@ -7,12 +7,13 @@
     <button type="submit">Add</button>
     <!-- {{addTodoInput}} -->
   </form>
-<h3>Tasks</h3>
+<h3>My Todo Tasks</h3>
   <div class="todo-lists" v-if="lists.length">
     <ul>
       <li v-for="list in lists" :key="list.id">
         <input type="checkbox" v-on:change="completeTask(list)" v-bind:checked="list.isComplete"/>
         <span class="title" 
+              contenteditable="true" 
               v-on:keydown.enter="updateTask($event, list)" 
               v-on:blur="updateTask($event, list)" 
               v-bind:class="{completed: list.isComplete}">{{list.title}}
@@ -34,7 +35,7 @@ import _ from 'lodash'
   
   data : function () {
    return {
-     message: 'New Task',
+     message: 'Todo App',
      addTodoInput: ''  , 
      lists: [], // this will hold all the created todo task items
      hasError: false  // <-- to handle errors
@@ -83,6 +84,7 @@ import _ from 'lodash'
 <style scoped>
 
 input[type=text].error{border: 1px solid red;}
+
 
 
 .title{
