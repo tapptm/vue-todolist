@@ -6,8 +6,6 @@
 - As a user, I need to be able to update the activity (toggle status between
 completed/not completed).
 - As a user, I need to be able to delete the activity.
-- As a user, I need to be able to list all the activities when the page is first loaded or
-reloaded.'
 
 ## Project setup
 ```
