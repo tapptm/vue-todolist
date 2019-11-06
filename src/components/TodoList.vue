@@ -7,7 +7,7 @@
     <button type="submit">Add</button>
     <!-- {{addTodoInput}} -->
   </form>
-<h3>New ToDo</h3>
+<h3>Tasks</h3>
   <div class="todo-lists" v-if="lists.length">
     <ul>
       <li v-for="list in lists" :key="list.id">
@@ -35,7 +35,7 @@ import _ from 'lodash'
   
   data : function () {
    return {
-     message: 'New ToDo',
+     message: 'New Task',
      addTodoInput: ''  , 
      lists: [], // this will hold all the created todo task items
      hasError: false  // <-- to handle errors
